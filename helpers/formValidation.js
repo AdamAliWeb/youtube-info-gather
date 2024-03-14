@@ -6,7 +6,7 @@ export default function formValidation(form) {
 
     // Form Validations
     if (!form.url) {
-        errors.url = errors.url = "The 'Url' field is empty";
+        errors.url = "";
     } else if (!initialRegex.test(form.url)) {
         errors.url =
             "The 'Url' is not valid, the link provided must start as a Youtube link";

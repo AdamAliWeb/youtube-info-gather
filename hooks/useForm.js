@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import formValidation from "../helpers/formValidation";
 
 export default function useForm(initialForm) {
@@ -24,22 +24,17 @@ export default function useForm(initialForm) {
         setErrors(formValidation(form));
         // e.target.querySelector("input[type='submit']").disabled = true;
 
-        if (Object.keys(errors).length !== 0) {
-            setResponse([
-                "The entered url is incorrect. Please try again.",
-                false,
-            ]);
-            setTimeout(() => {
-                setResponse(["", false]);
-            }, 5000);
-            return;
+        if (Object.keys(errors).length === 0) {
+            setResponse(["", true]);
+        } else {
+            setResponse(["", false]);
         }
-
-        setResponse(["The data is correct", true]);
     };
 
     return {
         form,
+        setForm,
+        setResponse,
         errors,
         response,
         handleChange,
