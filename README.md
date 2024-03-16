@@ -1,5 +1,9 @@
 # Youtube Info Gather
 
--   Check Details to recieve json files
+## Features to add
 
--   Let know that when I playlist is private or any other issue with the request must be reported in the page
+-   Details Checker Form allowing to recieve json log saved files
+
+## Issues to fix
+
+-   When list variable is WL error message is not displayed

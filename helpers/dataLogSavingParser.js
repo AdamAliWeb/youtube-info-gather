@@ -16,7 +16,7 @@ export const dataLogSavingParser = (
         parsedData.channel = playlist.snippet.channelTitle;
         parsedData.count = playlist.contentDetails.itemCount;
         parsedData.publishedDate = parseDate(playlist.snippet.publishedAt);
-        parsedData.url = `https://www.youtube.com/watch?v=${parsedData.id}`;
+        parsedData.url = `https://www.youtube.com/playlist?list=${parsedData.id}`;
 
         parsedData.videos = [];
 

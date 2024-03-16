@@ -28,10 +28,10 @@ function App() {
                                     path=""
                                     element={
                                         <p className="text-center p-1 md:text-lg max-w-screen-lg">
-                                            This is is the playlist section. You
-                                            can save information or check the
-                                            inner details of a playlist with
-                                            this options.
+                                            This is the playlist section. Here,
+                                            you can save information or check
+                                            the details of a playlist with these
+                                            options.
                                         </p>
                                     }
                                 />
