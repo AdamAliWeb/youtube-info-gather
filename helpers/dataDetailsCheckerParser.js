@@ -1,6 +1,10 @@
 import { decodeFromSeconds, retriveDuration, parseDate } from "./utilities";
 
-export const dataVideosParser = (playlistData, playlistVideos, videosData) => {
+export const dataDetailsCheckerParser = (
+    playlistData,
+    playlistVideos,
+    videosData
+) => {
     const parsedData = {};
 
     try {
@@ -19,7 +23,6 @@ export const dataVideosParser = (playlistData, playlistVideos, videosData) => {
         parsedData.channel = playlist.snippet.channelTitle;
         parsedData.publishedDate = parseDate(playlist.snippet.publishedAt);
 
-        // console.log(videosData);
         parsedData.fullDuration = decodeFromSeconds(
             retriveDuration(videosData).reduce((a, b) => a + b)
         );
@@ -74,8 +77,6 @@ export const dataVideosParser = (playlistData, playlistVideos, videosData) => {
         parsedData.unlistedVideos = [];
         parsedData.privateVideos = [];
         parsedData.deletedVideos = [];
-
-        console.log(parseDate.longestVideo);
 
         playlistVideos.forEach((video) => {
             const statuses = {

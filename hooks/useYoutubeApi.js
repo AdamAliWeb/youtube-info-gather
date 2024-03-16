@@ -32,7 +32,7 @@ export default function useYoutubeApi(playlistId) {
             const response = await fetch(url);
             return await response.json();
         } catch (error) {
-            console.log(error, "cuidao alfredo");
+            console.log(error);
         }
     };
 
@@ -45,7 +45,7 @@ export default function useYoutubeApi(playlistId) {
 
                 setYoutubePlaylistData(playlistData);
             } catch (error) {
-                console.log(error, "no creo");
+                console.log(error);
             }
         };
 
@@ -72,7 +72,7 @@ export default function useYoutubeApi(playlistId) {
                 setYoutubeVideosData(videosData);
                 setLoading(false);
             } catch (error) {
-                console.log(error, "Dj, dimelo");
+                console.log(error);
             }
         };
 

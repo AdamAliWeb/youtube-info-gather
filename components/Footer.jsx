@@ -9,7 +9,7 @@ export default function Footer() {
                 >
                     <img
                         className="w-20"
-                        src="./twitter-icon.svg"
+                        src="./assets/twitter-icon.svg"
                         alt="Twitter"
                     />
                 </a>
@@ -20,7 +20,7 @@ export default function Footer() {
                 >
                     <img
                         className="w-20"
-                        src="./linkedin-icon.svg"
+                        src="./assets/linkedin-icon.svg"
                         alt="Linkedin"
                     />
                 </a>
@@ -31,7 +31,7 @@ export default function Footer() {
                 >
                     <img
                         className="w-20"
-                        src="./global-icon.svg"
+                        src="./assets/global-icon.svg"
                         alt="Personal Website"
                     />
                 </a>
@@ -42,7 +42,7 @@ export default function Footer() {
                 >
                     <img
                         className="w-20"
-                        src="./github-icon.svg"
+                        src="./assets/github-icon.svg"
                         alt="Github"
                     />
                 </a>

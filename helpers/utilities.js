@@ -3,6 +3,14 @@ export const urlParser = (url) => {
     return url.match(idRegex) ? url.match(idRegex)[1] : "";
 };
 
+export const detectHiddenVideos = (arr = []) =>
+    arr.some(
+        (video) =>
+            video.status === "unlisted" ||
+            video.status === "private" ||
+            video.status === "privacyStatusUnspecified"
+    );
+
 export const secondsConverter = {
     W: 604800,
     D: 86400,

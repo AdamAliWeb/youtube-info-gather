@@ -1,4 +1,5 @@
 import { HashRouter, Route, Routes } from "react-router-dom";
+
 import MainMenu from "../components/MainMenu";
 import PlaylistMenu from "../components/PlaylistMenu";
 import Header from "../components/Header";
@@ -6,9 +7,11 @@ import FormTemplate from "../components/FormTemplate";
 import SaveLoaded from "../components/SaveLoaded";
 import CheckDetailsLoaded from "../components/CheckDetailsLoaded";
 import ComponentLoader from "../components/ComponentLoader";
-import { dataPlaylistParser } from "../helpers/dataPlaylistParser";
-import { dataVideosParser } from "../helpers/dataVideosParser";
 import Footer from "../components/Footer";
+import ErrorPage from "../components/ErrorPage";
+
+import { dataDetailsCheckerParser } from "../helpers/dataDetailsCheckerParser";
+import { dataLogSavingParser } from "../helpers/dataLogSavingParser";
 
 function App() {
     return (
@@ -33,38 +36,46 @@ function App() {
                                     }
                                 />
                                 <Route
-                                    path="save"
+                                    path="log-saving"
                                     element={
                                         <FormTemplate
-                                            formId={"playlist-save-form"}
-                                            formTitle={"Save Log Form"}
+                                            formId={"playlist-log-saving-form"}
+                                            formTitle={"Log Saving Form"}
                                             formDescription={
-                                                "*Insert the url and save the playlist information so you can know which videos got deleted on the future or just to compare"
+                                                "*Enter the URL and save playlist information to track deleted videos or for future comparison. Before saving any log, ensure to check for hidden/private/deleted videos in the playlist details."
                                             }
-                                            dataParser={dataPlaylistParser}
+                                            dataParser={dataLogSavingParser}
                                             ComponentLoader={ComponentLoader}
                                             ComponentToLoad={SaveLoaded}
                                         />
                                     }
                                 />
                                 <Route
-                                    path="check-details"
+                                    path="details-checker"
                                     element={
                                         <FormTemplate
                                             formId={
-                                                "playlist-check-details-form"
+                                                "playlist-details-checker-form"
                                             }
-                                            formTitle={"Check Details Form"}
+                                            formTitle={"Details Checker Form"}
                                             formDescription={
-                                                "*Check more in depth details of a playlist like the duration of it or the hidden videos"
+                                                "*Explore more in-depth details of content, like its duration or hidden videos."
                                             }
-                                            dataParser={dataVideosParser}
+                                            dataParser={
+                                                dataDetailsCheckerParser
+                                            }
                                             ComponentLoader={ComponentLoader}
                                             ComponentToLoad={CheckDetailsLoaded}
                                         />
                                     }
                                 />
                             </Route>
+                            <Route
+                                path="*"
+                                element={
+                                    <ErrorPage errorTitle="Error 404: Page not Found" />
+                                }
+                            />
                         </Routes>
                     </HashRouter>
                 </main>

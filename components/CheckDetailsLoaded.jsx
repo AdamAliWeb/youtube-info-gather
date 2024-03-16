@@ -1,7 +1,6 @@
 import VideoTemplate from "./VideoTemplate";
 
 export default function CheckDetailsLoaded({ data }) {
-    console.log(data);
     return (
         <table className="w-full border-2 border-black border-collapse my-5 text-left">
             <tbody>
@@ -67,7 +66,7 @@ export default function CheckDetailsLoaded({ data }) {
                     </th>
                     <td className="border-2 border-black p-1">
                         <VideoTemplate
-                            video={data.shortestVideo}
+                            video={data.longestVideo}
                             title={true}
                             channel={true}
                             url={true}
@@ -84,7 +83,7 @@ export default function CheckDetailsLoaded({ data }) {
                     </th>
                     <td className="border-2 border-black p-1">
                         <VideoTemplate
-                            video={data.longestVideo}
+                            video={data.shortestVideo}
                             title={true}
                             channel={true}
                             url={true}
@@ -93,43 +92,6 @@ export default function CheckDetailsLoaded({ data }) {
                             publishedDate={true}
                             addedDate={true}
                         />
-                        {/* <ul className="bg-slate-200 my-2 p-1 rounded">
-                            <li>
-                                <span className="font-bold">Title:</span>{" "}
-                                {data.shortestVideo?.title}
-                            </li>
-                            <li>
-                                <span className="font-bold">Channel:</span>{" "}
-                                {data.shortestVideo?.channel}
-                            </li>
-                            <li>
-                                <a
-                                    className="font-bold underline"
-                                    href={data.shortestVideo?.url}
-                                    target="_blank"
-                                >
-                                    Video Link
-                                </a>
-                            </li>
-                            <li>
-                                <span className="font-bold">Position:</span>{" "}
-                                {data.shortestVideo?.position}
-                            </li>
-                            <li>
-                                <span className="font-bold">Duration:</span>{" "}
-                                {data.shortestVideo?.duration}
-                            </li>
-                            <li>
-                                <span className="font-bold">
-                                    Publication Date:
-                                </span>{" "}
-                                {data.shortestVideo?.publishedDate}
-                            </li>
-                            <li>
-                                <span className="font-bold">Added Date:</span>{" "}
-                                {data.shortestVideo?.addedDate}
-                            </li>
-                        </ul> */}
                     </td>
                 </tr>
                 <tr>

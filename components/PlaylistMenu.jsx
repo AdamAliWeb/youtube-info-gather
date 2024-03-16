@@ -14,15 +14,15 @@ export default function PlaylistMenu() {
             <nav className="w-full my-3 flex justify-center">
                 <Link
                     className="inline-block bg-amber-500 text-white text-center p-1 px-2 md:p-2 mx-3 rounded-full font-bold border-black border-2 hover:bg-white hover:text-amber-500 transition-colors duration-300"
-                    to="/playlist/save"
+                    to="/playlist/log-saving"
                 >
-                    Save Log
+                    Log Saving
                 </Link>
                 <Link
                     className="inline-block bg-amber-500 text-white text-center p-1 md:p-2 mx-3 rounded-full font-bold border-black border-2 hover:bg-white hover:text-amber-500 transition-colors duration-300"
-                    to="/playlist/check-details"
+                    to="/playlist/details-checker"
                 >
-                    Check Details
+                    Details Checker
                 </Link>
             </nav>
             <Outlet />

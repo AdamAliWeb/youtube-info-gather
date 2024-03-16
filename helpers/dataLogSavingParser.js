@@ -1,6 +1,6 @@
 import { decodeFromSeconds, encodeToSeconds, parseDate } from "./utilities";
 
-export const dataPlaylistParser = (
+export const dataLogSavingParser = (
     playlistData,
     playlistVideos,
     videosData
@@ -19,7 +19,7 @@ export const dataPlaylistParser = (
         parsedData.url = `https://www.youtube.com/watch?v=${parsedData.id}`;
 
         parsedData.videos = [];
-        console.log(playlistVideos);
+
         parsedData.videos = playlistVideos.map((el, index) => {
             let videoData = videosData.find(
                 (video) => video.id === el.snippet.resourceId.videoId
@@ -41,8 +41,6 @@ export const dataPlaylistParser = (
                 status: el.status.privacyStatus,
             };
         });
-
-        console.log(parsedData);
     } catch (error) {
         console.log(error);
     }

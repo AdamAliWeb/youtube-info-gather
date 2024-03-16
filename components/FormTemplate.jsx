@@ -53,7 +53,7 @@ export default function FormTemplate({
                 />
 
                 <input
-                    className="submit-btn block bg-amber-500 text-white text-center py-1 px-4 md:py-2 md:px-5 m-2 md:mt-4 rounded-full font-bold border-2 border-black hover:bg-white hover:text-amber-500 transition-colors duration-300 cursor-pointer"
+                    className="block bg-amber-500 text-white text-center py-1 px-4 md:py-2 md:px-5 m-2 md:mt-4 rounded-full font-bold border-2 border-black hover:bg-white hover:text-amber-500 transition-colors duration-300 cursor-pointer"
                     onClick={() => setResponse(["", false])}
                     type="submit"
                     value="Submit"

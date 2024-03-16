@@ -27,13 +27,13 @@ export default function ComponentLoader({ url, dataParser, ComponentToLoad }) {
     if (loading) {
         return (
             <div className="flex flex-col items-center my-5">
-                <img src="./loading.svg" alt="Loading" />
+                <img src="./assets/loading.svg" alt="Loading" />
                 <p>Loading...</p>
             </div>
         );
     } else if (failedResponse) {
         return (
-            <div className="w-full my-4 max-w-screen-md bg-red-200 rounded">
+            <div className="w-full my-4 max-w-screen-lg bg-red-200 rounded">
                 <p className="p-2  text-center">
                     Something went wrong with the request. Make sure the url is
                     written correctly or the playlist is public or hidden.

@@ -9,10 +9,10 @@ export default function formValidation(form) {
         errors.url = "";
     } else if (!initialRegex.test(form.url)) {
         errors.url =
-            "The 'Url' is not valid, the link provided must start as a Youtube link";
+            "The 'Url' is not valid. The link provided must start with 'youtube.com'.";
     } else if (!listRegex.test(form.url)) {
         errors.url =
-            "The 'Url' is not valid, the link provided must have the list variable";
+            "The 'Url' is not valid. Ensure the link includes the 'list' variable.";
     }
 
     return errors;
