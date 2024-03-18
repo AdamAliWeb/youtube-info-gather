@@ -44,7 +44,10 @@ export default function SaveLoaded({ data }) {
             {permitSave === true ? (
                 <a
                     className="submit-btn inline-block bg-amber-500 text-white text-center py-1 px-4 md:py-2 md:px-5 m-2 md:mt-4 rounded-full font-bold border-black border-2 hover:bg-white hover:text-amber-500 transition-colors duration-300"
-                    href={"data:," + JSON.stringify(data, null, 4)}
+                    href={
+                        "data:," +
+                        JSON.stringify(data, null, 4).replace(/#/g, "%23")
+                    }
                     download={`${data.title} ${parseDateForFiles(
                         new Date().toJSON()
                     )}.json`}

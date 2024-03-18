@@ -4,7 +4,7 @@ import formValidation from "../helpers/formValidation";
 export default function useForm(initialForm) {
     const [form, setForm] = useState(initialForm);
     const [errors, setErrors] = useState({});
-    const [response, setResponse] = useState(["", false]);
+    const [response, setResponse] = useState(false);
 
     // The Functions to Handle Changes to the Inputs
     const handleChange = (e) => {
@@ -24,9 +24,9 @@ export default function useForm(initialForm) {
         setErrors(formValidation(form));
 
         if (Object.keys(errors).length === 0) {
-            setResponse(["", true]);
+            setResponse(true);
         } else {
-            setResponse(["", false]);
+            setResponse(false);
         }
     };
 

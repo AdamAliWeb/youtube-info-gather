@@ -24,7 +24,7 @@ export default function FormTemplate({
 
     useEffect(() => {
         setForm({ url: "" });
-        setResponse([("", false)]);
+        setResponse(false);
     }, [formId]);
 
     return (
@@ -54,16 +54,13 @@ export default function FormTemplate({
 
                 <input
                     className="block bg-amber-500 text-white text-center py-1 px-4 md:py-2 md:px-5 m-2 md:mt-4 rounded-full font-bold border-2 border-black hover:bg-white hover:text-amber-500 transition-colors duration-300 cursor-pointer"
-                    onClick={() => setResponse(["", false])}
+                    onClick={() => setResponse(false)}
                     type="submit"
                     value="Submit"
                 />
                 {errors.url ? <p className="md:text-lg">{errors.url}</p> : null}
-                {response[0] ? (
-                    <p className="md:text-lg">{response[0]}</p>
-                ) : null}
             </form>
-            {response[1] && (
+            {response && (
                 <ComponentLoader
                     url={form.url}
                     dataParser={dataParser}

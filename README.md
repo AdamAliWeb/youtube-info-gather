@@ -4,6 +4,8 @@
 
 -   Details Checker Form allowing to recieve json log saved files
 
+-   Add ads to the website
+
 ## Issues to fix
 
--   When list variable is WL error message is not displayed
+-   Check what happens after used quota overpasses the limit

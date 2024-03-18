@@ -13,7 +13,7 @@ export default function ComponentLoader({ url, dataParser, ComponentToLoad }) {
     const [data, setData] = useState({});
 
     useEffect(() => {
-        if (!loading && !failedResponse) {
+        if (!loading && !failedResponse[1]) {
             let parsedData = dataParser(
                 youtubePlaylistData,
                 youtubePlaylistVideos,
@@ -31,16 +31,13 @@ export default function ComponentLoader({ url, dataParser, ComponentToLoad }) {
                 <p>Loading...</p>
             </div>
         );
-    } else if (failedResponse) {
+    } else if (failedResponse[1]) {
         return (
             <div className="w-full my-4 max-w-screen-lg bg-red-200 rounded">
-                <p className="p-2  text-center">
-                    Something went wrong with the request. Make sure the url is
-                    written correctly or the playlist is public or hidden.
-                </p>
+                <p className="p-2  text-center">{failedResponse[0]}</p>
             </div>
         );
-    } else if (Object.keys(data).length !== 0) {
+    } else if (data !== undefined && Object.keys(data).length !== 0) {
         return <ComponentToLoad data={data} />;
     }
 }

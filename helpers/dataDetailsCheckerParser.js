@@ -104,6 +104,6 @@ export const dataDetailsCheckerParser = (
 
         return parsedData;
     } catch (error) {
-        console.error(error);
+        console.log(error);
     }
 };

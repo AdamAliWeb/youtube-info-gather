@@ -20,11 +20,14 @@ const splitArray = (array, quantity) => {
     return result;
 };
 
+let errorRequestMessage =
+    "There was a problem with the request. Please ensure the URL is correct and the playlist is either public or unlisted.";
+
 export default function useYoutubeApi(playlistId) {
     const [youtubePlaylistData, setYoutubePlaylistData] = useState({});
     const [youtubePlaylistVideos, setYoutubePlaylistVideos] = useState([]);
     const [youtubeVideosData, setYoutubeVideosData] = useState([]);
-    const [failedResponse, setFailedResponse] = useState(false);
+    const [failedResponse, setFailedResponse] = useState(["", false]);
     const [loading, setLoading] = useState(true);
 
     const fetchData = async (url) => {
@@ -43,9 +46,14 @@ export default function useYoutubeApi(playlistId) {
                     `${FETCH_PLAYLIST_URL}&id=${playlistId}`
                 );
 
+                if (playlistData.items.length === 0) {
+                    throw new Error("");
+                }
+
                 setYoutubePlaylistData(playlistData);
             } catch (error) {
-                console.log(error);
+                setFailedResponse([errorRequestMessage, true]);
+                setLoading(false);
             }
         };
 
@@ -99,7 +107,7 @@ export default function useYoutubeApi(playlistId) {
                     }
                 }
             } catch (error) {
-                setFailedResponse(true);
+                setFailedResponse([errorRequestMessage, true]);
                 setLoading(false);
             }
         };
