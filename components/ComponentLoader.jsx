@@ -32,12 +32,14 @@ export default function ComponentLoader({ url, dataParser, ComponentToLoad }) {
             </div>
         );
     } else if (failedResponse[1]) {
+        document.querySelector(".submit-btn").disabled = false;
         return (
             <div className="w-full my-4 max-w-screen-lg bg-red-200 rounded">
                 <p className="p-2  text-center">{failedResponse[0]}</p>
             </div>
         );
     } else if (data !== undefined && Object.keys(data).length !== 0) {
+        document.querySelector(".submit-btn").disabled = false;
         return <ComponentToLoad data={data} />;
     }
 }

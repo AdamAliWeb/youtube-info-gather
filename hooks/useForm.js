@@ -21,6 +21,7 @@ export default function useForm(initialForm) {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        document.querySelector(".submit-btn").disabled = true;
         setErrors(formValidation(form));
 
         if (Object.keys(errors).length === 0) {

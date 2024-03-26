@@ -2,9 +2,14 @@
 
 ## Technology Stack
 
+![React](https://adamaliweb.com/assets/technologies/react.svg)
+![React Router](https://adamaliweb.com/assets/technologies/react-router.svg)
+![Tailwind](https://adamaliweb.com/assets/technologies/tailwind.svg)
+![Vite](https://adamaliweb.com/assets/technologies/vite.svg)
+
 ## Description
 
-**Youtube Info Gather** (or **YIG**) helps you retrieve data from YouTube playlists. It can collect, save, and compare information from videos within a playlist. This is particularly useful because YouTube videos can be unexpectedly deleted, making it challenging to recover them.
+**YouTube Info Gather** (or **YIG**) helps you retrieve data from YouTube playlists. It can collect, save, and compare information from videos within a playlist. This is particularly useful because YouTube videos can be unexpectedly deleted, making it challenging to recover them.
 
 The app consists of two main sections:
 
@@ -13,7 +18,7 @@ The app consists of two main sections:
 
 > This combination of features addresses the issue of inaccessible videos on YouTube, where users are not notified when they are removed. That's why I created this website – so everyone can resolve the problem when a video is deleted or hidden, and know which one it was.
 
-To try it out, visit **[Youtube Info Gather](https://youtubeinfogather.adamaliweb.com/)**.
+To try it out, visit **[YouTube Info Gather](https://youtubeinfogather.adamaliweb.com/)**.
 
 ## Features to Add
 
@@ -21,8 +26,4 @@ To try it out, visit **[Youtube Info Gather](https://youtubeinfogather.adamaliwe
 
 ## Issues to Fix
 
--   Correct the title name from "Youtube" to "YouTube".
-
 -   Investigate what happens after the usage quota exceeds the limit.
-
--   Disable the submit button while processing.
