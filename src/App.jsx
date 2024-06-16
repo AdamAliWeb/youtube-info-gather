@@ -1,48 +1,52 @@
 import { HashRouter, Route, Routes } from "react-router-dom";
 
-import MainMenu from "../components/MainMenu";
+import Home from "../components/Home";
 import PlaylistMenu from "../components/PlaylistMenu";
 import Header from "../components/Header";
 import FormTemplate from "../components/FormTemplate";
 import SaveLoaded from "../components/SaveLoaded";
 import CheckDetailsLoaded from "../components/CheckDetailsLoaded";
 import ComponentLoader from "../components/ComponentLoader";
-import Footer from "../components/Footer";
+
 import ErrorPage from "../components/ErrorPage";
 
 import { dataDetailsCheckerParser } from "../helpers/dataDetailsCheckerParser";
 import { dataLogSavingParser } from "../helpers/dataLogSavingParser";
+import DefaultForm from "../components/DefaultForm";
 
 function App() {
     return (
-        <div className="min-h-screen flex flex-col justify-between">
+        <div className="min-h-screen flex flex-col justify-between yig-black">
             <div className="mb-5">
                 <Header />
-                <main>
+                <main className="main-content p-3 pb-20">
                     <HashRouter>
                         <Routes>
-                            <Route index element={<MainMenu />} />
+                            <Route index element={<Home />} />
                             <Route path="/playlist" element={<PlaylistMenu />}>
                                 <Route
                                     index
                                     path=""
-                                    element={
-                                        <p className="text-center p-1 md:text-lg max-w-screen-lg">
-                                            This is the playlist section. Here,
-                                            you can save information or check
-                                            the details of a playlist with these
-                                            options.
-                                        </p>
-                                    }
+                                    element={<DefaultForm />}
                                 />
                                 <Route
                                     path="log-saving"
                                     element={
                                         <FormTemplate
                                             formId={"playlist-log-saving-form"}
-                                            formTitle={"Log Saving Form"}
+                                            formTitle={"Log Saving"}
                                             formDescription={
-                                                "*Enter the URL and save playlist information to track deleted videos or for future comparison. Before saving any log, ensure to check for hidden/private/deleted videos in the playlist details."
+                                                <p className="text-center md:text-lg my-3">
+                                                    Enter the{" "}
+                                                    <strong>URL</strong> and
+                                                    save playlist information to
+                                                    track deleted videos or for
+                                                    future comparison. Before
+                                                    saving any log, ensure to
+                                                    check for inaccessible
+                                                    videos in the playlist
+                                                    details.
+                                                </p>
                                             }
                                             dataParser={dataLogSavingParser}
                                             ComponentLoader={ComponentLoader}
@@ -57,9 +61,13 @@ function App() {
                                             formId={
                                                 "playlist-details-checker-form"
                                             }
-                                            formTitle={"Details Checker Form"}
+                                            formTitle={"Details Checker"}
                                             formDescription={
-                                                "*Explore more in-depth details of content, like its duration or hidden videos."
+                                                <p className="text-center md:text-lg my-3">
+                                                    Explore more in-depth
+                                                    details of content, like its
+                                                    duration or hidden videos.
+                                                </p>
                                             }
                                             dataParser={
                                                 dataDetailsCheckerParser
@@ -80,7 +88,6 @@ function App() {
                     </HashRouter>
                 </main>
             </div>
-            <Footer />
         </div>
     );
 }

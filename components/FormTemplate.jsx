@@ -28,38 +28,49 @@ export default function FormTemplate({
     }, [formId]);
 
     return (
-        <section
-            id={formId}
-            className="w-full p-1 max-w-screen-lg flex flex-col items-center"
-        >
-            <h3 className="text-center text-lg md:text-2xl font-bold">
-                {formTitle}
-            </h3>
-            <p className="text-center md:text-lg my-3">{formDescription}</p>
-
-            <form
-                className="bg-amber-100 flex flex-col items-center p-3 border-2 border-black rounded w-full "
-                onSubmit={handleSubmit}
+        <>
+            <section
+                id={formId}
+                className="yig-black-10-bg w-full flex flex-col justify-center items-center p-3 desktop:p-6 py-10 desktop:py-14 rounded-lg shadow-2xl"
             >
-                <input
-                    className="w-full rounded p-1 md:p-2 md:text-xl"
-                    type="text"
-                    name="url"
-                    placeholder="url"
-                    required
-                    onChange={handleChange}
-                    onBlur={handleBlur}
-                    value={form.url}
-                />
+                <h2 className="text-center text-5xl desktop:text-8xl">
+                    {formTitle}
+                </h2>
+                {formDescription}
 
-                <input
-                    className="submit-btn block bg-amber-500 text-white text-center py-1 px-4 md:py-2 md:px-5 m-2 md:mt-4 rounded-full font-bold border-2 border-black hover:bg-white hover:text-amber-500 transition-colors duration-300 cursor-pointer"
-                    onClick={() => setResponse(false)}
-                    type="submit"
-                    value="Submit"
-                />
-                {errors.url ? <p className="md:text-lg">{errors.url}</p> : null}
-            </form>
+                <form
+                    className="flex flex-col items-center w-full "
+                    onSubmit={handleSubmit}
+                >
+                    <input
+                        className="yig-input w-full rounded p-2 desktop:p-3 yig-black-50-border border-2 focus:outline-none transition-all duration-300"
+                        type="text"
+                        name="url"
+                        placeholder="URL"
+                        required
+                        onChange={handleChange}
+                        onBlur={handleBlur}
+                        value={form.url}
+                    />
+
+                    <input
+                        className="submit-btn yig-btn yig-first-yellow-bg yig-first-yellow-border yig-black block text-center text-xl desktop:text-2xl py-3 px-6 desktop:py-5 desktop:px-10 m-6 rounded-lg border-2 hover:bg-white shadow-2xl transition-colors duration-300 cursor-pointer"
+                        onClick={() => setResponse(false)}
+                        type="submit"
+                        value="Submit"
+                    />
+                </form>
+            </section>
+            {errors.url ? (
+                <div className="yig-fade-in w-full flex items-center px-3 py-6 desktop:px-6 my-10 yig-black-10-bg rounded-lg shadow-lg">
+                    <img
+                        className="pr-3 desktop:w-12"
+                        src="./assets/warning.svg"
+                        alt="warning"
+                    />
+                    <p>{errors.url}</p>
+                </div>
+            ) : null}
             {response && (
                 <ComponentLoader
                     url={form.url}
@@ -67,6 +78,6 @@ export default function FormTemplate({
                     ComponentToLoad={ComponentToLoad}
                 />
             )}
-        </section>
+        </>
     );
 }

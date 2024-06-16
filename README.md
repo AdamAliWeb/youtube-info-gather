@@ -26,4 +26,10 @@ To try it out, visit **[YouTube Info Gather](https://youtubeinfogather.adamaliwe
 
 ## Issues to Fix
 
--   Investigate what happens after the usage quota exceeds the limit.
+-   Add images and change to a better placing for home text
+
+-   Investigate what happens after the usage quota exceeds the limit
+
+-   Fix the error when infocusing an incorrect url makes the submit button disabled entirely
+
+-   Add useEffect on _FormTemplate.jsx_ to scroll to errors whean appear
