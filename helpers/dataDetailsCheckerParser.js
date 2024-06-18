@@ -1,4 +1,9 @@
-import { decodeFromSeconds, retriveDuration, parseDate } from "./utilities";
+import {
+    decodeFromSeconds,
+    retriveDuration,
+    parseDate,
+    findThumbnail,
+} from "./utilities";
 
 export const dataDetailsCheckerParser = (
     playlistData,
@@ -21,7 +26,9 @@ export const dataDetailsCheckerParser = (
         parsedData.title = playlist.snippet.title;
         parsedData.description = playlist.snippet.description;
         parsedData.channel = playlist.snippet.channelTitle;
+        parsedData.count = playlist.contentDetails.itemCount;
         parsedData.publishedDate = parseDate(playlist.snippet.publishedAt);
+        parsedData.thumbnail = findThumbnail(playlist.snippet.thumbnails);
 
         parsedData.fullDuration = decodeFromSeconds(
             retriveDuration(videosData).reduce((a, b) => a + b)
@@ -36,6 +43,7 @@ export const dataDetailsCheckerParser = (
             title: maxDurationObject.snippet.title,
             url: `https://www.youtube.com/watch?v=${maxDurationObject.id}`,
             channel: maxDurationObject.snippet.channelTitle,
+            thumbnail: findThumbnail(maxDurationObject.snippet.thumbnails),
             position:
                 playlistVideos.find(
                     (video) =>
@@ -55,8 +63,9 @@ export const dataDetailsCheckerParser = (
 
         parsedData.shortestVideo = {
             title: minDurationObject.snippet.title,
-            channel: minDurationObject.snippet.channelTitle,
             url: `https://www.youtube.com/watch?v=${minDurationObject.id}`,
+            channel: minDurationObject.snippet.channelTitle,
+            thumbnail: findThumbnail(minDurationObject.snippet.thumbnails),
             position:
                 playlistVideos.find(
                     (video) =>
@@ -90,6 +99,7 @@ export const dataDetailsCheckerParser = (
                     id: video.snippet.resourceId.videoId,
                     title: video.snippet.title,
                     channel: video.snippet.videoOwnerChannelTitle,
+                    thumbnail: findThumbnail(video.snippet.thumbnails),
                     position: video.snippet.position + 1,
                     publishedDate: parseDate(
                         video.contentDetails.videoPublishedAt

@@ -28,6 +28,7 @@ export default function useForm(initialForm) {
             setResponse(true);
         } else {
             setResponse(false);
+            document.querySelector(".submit-btn").disabled = false;
         }
     };
 

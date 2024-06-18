@@ -3,6 +3,16 @@ export const urlParser = (url) => {
     return url.match(idRegex) ? url.match(idRegex)[1] : "";
 };
 
+export const findThumbnail = (thumb) => {
+    if (thumb?.high) {
+        return thumb.high.url;
+    } else if (thumb?.medium) {
+        return thumb.medium.url;
+    } else if (thumb?.default) {
+        return thumb.default.url;
+    } else return null;
+};
+
 export const detectHiddenVideos = (arr = []) =>
     arr.some(
         (video) =>
@@ -74,20 +84,23 @@ export const parseDateForFiles = (dateISO) => {
 };
 
 export const parseDate = (dateISO) => {
-    const daysOfTheWeek = [
-        "Monday",
-        "Tuesday",
-        "Wednesday",
-        "Thursday",
-        "Friday",
-        "Saturday",
-        "Sunday",
+    const monthsOfTheYear = [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec",
     ];
     let date = new Date(dateISO);
-    let newDate = `${daysOfTheWeek[date.getDay()]} ${date.getDate()}/${
-        date.getMonth() + 1
-    }/${date.getFullYear()} ${date.getHours()}:${
-        date.getMinutes() < 10 ? "0" + date.getMinutes() : date.getMinutes()
-    }`;
+    let newDate = `${date.getDate()} ${
+        monthsOfTheYear[date.getMonth()]
+    } ${date.getFullYear()}`;
     return newDate;
 };

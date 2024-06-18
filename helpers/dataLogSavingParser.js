@@ -1,4 +1,9 @@
-import { decodeFromSeconds, encodeToSeconds, parseDate } from "./utilities";
+import {
+    decodeFromSeconds,
+    encodeToSeconds,
+    findThumbnail,
+    parseDate,
+} from "./utilities";
 
 export const dataLogSavingParser = (
     playlistData,
@@ -17,6 +22,7 @@ export const dataLogSavingParser = (
         parsedData.count = playlist.contentDetails.itemCount;
         parsedData.publishedDate = parseDate(playlist.snippet.publishedAt);
         parsedData.url = `https://www.youtube.com/playlist?list=${parsedData.id}`;
+        parsedData.thumbnail = findThumbnail(playlist.snippet.thumbnails);
 
         parsedData.videos = [];
 

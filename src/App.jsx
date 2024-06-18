@@ -81,7 +81,14 @@ function App() {
                             <Route
                                 path="*"
                                 element={
-                                    <ErrorPage errorTitle="Error 404: Page not Found" />
+                                    <ErrorPage
+                                        errorTitle={
+                                            <span>
+                                                <strong>Error 404</strong>: Page
+                                                not Found
+                                            </span>
+                                        }
+                                    />
                                 }
                             />
                         </Routes>

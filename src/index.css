@@ -71,6 +71,10 @@ body {
     border-color: var(--third-yellow);
 }
 
+.yig-error-btn:hover {
+    color: var(--black);
+}
+
 /* Animations */
 @keyframes float {
     0% {

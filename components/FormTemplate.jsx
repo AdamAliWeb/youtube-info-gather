@@ -31,7 +31,7 @@ export default function FormTemplate({
         <>
             <section
                 id={formId}
-                className="yig-black-10-bg w-full flex flex-col justify-center items-center p-3 desktop:p-6 py-10 desktop:py-14 rounded-lg shadow-2xl"
+                className="yig-black-05-bg w-full flex flex-col justify-center items-center p-3 desktop:p-6 py-10 desktop:py-14 rounded-lg shadow-md"
             >
                 <h2 className="text-center text-5xl desktop:text-8xl">
                     {formTitle}
@@ -62,7 +62,7 @@ export default function FormTemplate({
                 </form>
             </section>
             {errors.url ? (
-                <div className="yig-fade-in w-full flex items-center px-3 py-6 desktop:px-6 my-10 yig-black-10-bg rounded-lg shadow-lg">
+                <div className="yig-fade-in w-full flex items-center px-3 py-6 desktop:px-6 my-10 yig-black-05-bg rounded-lg shadow-lg">
                     <img
                         className="pr-3 desktop:w-12"
                         src="./assets/warning.svg"
@@ -71,12 +71,14 @@ export default function FormTemplate({
                     <p>{errors.url}</p>
                 </div>
             ) : null}
-            {response && (
+            {response ? (
                 <ComponentLoader
                     url={form.url}
                     dataParser={dataParser}
                     ComponentToLoad={ComponentToLoad}
                 />
+            ) : (
+                <div className="w-full h-40"></div>
             )}
         </>
     );

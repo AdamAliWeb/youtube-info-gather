@@ -12,38 +12,88 @@ export default function SaveLoaded({ data }) {
     }, []);
 
     return (
-        <section className="text-center p-2">
-            <ul className="bg-slate-200 my-1 md:my-2 p-2 md:p-4 rounded">
-                <li>
-                    <span className="font-bold">Title: </span>
-                    {data.title}
-                </li>
-                <li>
-                    <span className="font-bold">Channel: </span>
-                    {data.channel}
-                </li>
-                <li>
-                    <span className="font-bold">Published Date: </span>
-                    {data.publishedDate}
-                </li>
-                <li>
-                    <span className="font-bold">Videos: </span>
-                    {data.count}
-                </li>
-                <li>
-                    <a
-                        className="font-bold underline"
-                        href={data.url}
-                        target="_blank"
-                    >
-                        Playlist Link
-                    </a>
-                </li>
-            </ul>
+        <section className="text-center w-full my-16 text-lg desktop:text-xl">
+            <div className="yig-black-05-bg flex flex-col items-center rounded-lg shadow-md p-2 desktop:flex-row desktop:items-start desktop:p-5">
+                <img
+                    className="rounded-lg mb-5 max-w-64	h-64 object-cover"
+                    src={
+                        data.thumbnail
+                            ? data.thumbnail
+                            : "./assets/no-image.jpg"
+                    }
+                    alt="thumbnail"
+                />
+
+                <ul className="w-full desktop:pl-8">
+                    <li className="flex flex-col w-full py-6 px-3 text-left desktop:grid desktop:grid-cols-5 desktop:py-0">
+                        <p className="yig-black-75 yig-black-50-border flex items-center border-b pb-1 desktop:col-span-2 desktop:py-3 desktop:border-b-0 desktop:border-r-2">
+                            <img
+                                className="w-4 desktop:w-5 mr-2 "
+                                src="./assets/title.svg"
+                                alt="title"
+                            />
+                            Title
+                        </p>
+                        <p className="pt-1 flex items-center desktop:pl-4 desktop:col-span-3">
+                            {data.title}
+                        </p>
+                    </li>
+                    <li className="flex flex-col w-full py-6 px-3 text-left desktop:grid desktop:grid-cols-5 desktop:py-0">
+                        <p className="yig-black-75 yig-black-50-border flex items-center border-b pb-1 desktop:col-span-2 desktop:py-3 desktop:border-b-0 desktop:border-r-2">
+                            <img
+                                className="w-4 desktop:w-5 mr-2 "
+                                src="./assets/channel.svg"
+                                alt="channel"
+                            />
+                            Channel
+                        </p>
+                        <p className="pt-1 flex items-center desktop:pl-4 desktop:col-span-3">
+                            {data.channel}
+                        </p>
+                    </li>
+                    <li className="flex flex-col w-full py-6 px-3 text-left desktop:grid desktop:grid-cols-5 desktop:py-0">
+                        <p className="yig-black-75 yig-black-50-border flex items-center border-b pb-1 desktop:col-span-2 desktop:py-3 desktop:pr-1 desktop:border-b-0 desktop:border-r-2">
+                            <img
+                                className="w-4 desktop:w-5 mr-2 "
+                                src="./assets/creation-date.svg"
+                                alt="creation date"
+                            />
+                            Published Date
+                        </p>
+                        <p className="pt-1 flex items-center desktop:pl-4 desktop:col-span-3">
+                            {data.publishedDate}
+                        </p>
+                    </li>
+
+                    <li className="flex flex-col w-full py-6 px-3 text-left desktop:grid desktop:grid-cols-5 desktop:py-0">
+                        <p className="yig-black-75 yig-black-50-border flex items-center border-b pb-1 desktop:col-span-2 desktop:py-3 desktop:pr-1 desktop:border-b-0 desktop:border-r-2">
+                            <img
+                                className="w-4 desktop:w-5 mr-2 "
+                                src="./assets/videos.svg"
+                                alt="videos"
+                            />
+                            Videos
+                        </p>
+                        <p className="pt-1 flex items-center desktop:pl-4 desktop:col-span-3">
+                            {data.count}
+                        </p>
+                    </li>
+
+                    <li className="flex justify-center my-8">
+                        <a
+                            className="hover:saturate-200 transition-all duration-300"
+                            href={data.url}
+                            target="_blank"
+                        >
+                            <img src="./assets/link.svg" alt="playlist-link" />
+                        </a>
+                    </li>
+                </ul>
+            </div>
 
             {permitSave === true ? (
                 <a
-                    className="submit-btn inline-block bg-amber-500 text-white text-center py-1 px-4 md:py-2 md:px-5 m-2 md:mt-4 rounded-full font-bold border-black border-2 hover:bg-white hover:text-amber-500 transition-colors duration-300"
+                    className="submit-btn yig-btn yig-first-yellow-bg yig-first-yellow-border yig-black inline-block text-center text-xl desktop:text-2xl py-3 px-6 desktop:py-5 desktop:px-10 m-6 rounded-lg border-2 hover:bg-white shadow-2xl transition-colors duration-300 cursor-pointer"
                     href={
                         "data:," +
                         JSON.stringify(data, null, 4).replace(/#/g, "%23")
@@ -53,25 +103,25 @@ export default function SaveLoaded({ data }) {
                     )}.json`}
                     onClick={() => location.reload()}
                 >
-                    Save
+                    Save Log
                 </a>
             ) : (
-                <div className="w-full my-4 max-w-screen-md bg-red-200 rounded flex flex-col items-center p-2">
-                    <p className="p-2  text-center">
-                        There are some hidden/private/deleted videos. I suggest
-                        checking the details to see which ones they are and
-                        either replace or delete them from the playlist. Do you
-                        still want to save the log?
+                <div className="yig-black-05-bg w-full rounded-lg shadow-md flex flex-col p-2 my-14">
+                    <p className="p-2 desktop:p-4 text-left">
+                        There are some <strong>inaccessible</strong> videos. I
+                        suggest checking the details to see which ones they are
+                        and either replace or delete them from the playlist. Do
+                        you still want to save the log?
                     </p>
-                    <div className="flex gap-8">
+                    <div className="flex flex-col desktop:flex-row">
                         <button
-                            className="block bg-amber-500 text-white text-center py-1 px-4 md:py-2 md:px-5 m-2 md:mt-4 rounded-full font-bold border-2 border-black hover:bg-white hover:text-amber-500 transition-colors duration-300 cursor-pointer"
+                            className="yig-btn yig-error-btn yig-error-color-bg yig-error-color-border yig-white inline-block text-center text-xl desktop:text-2xl py-3 px-6 desktop:py-5 desktop:px-10 m-4 desktop:m-6 rounded-lg border-2 hover:bg-white shadow-2xl transition-colors duration-300 cursor-pointer"
                             onClick={() => setPermitSave(true)}
                         >
                             Proceed
                         </button>
                         <Link
-                            className="block bg-amber-500 text-white text-center py-1 px-4 md:py-2 md:px-5 m-2 md:mt-4 rounded-full font-bold border-2 border-black hover:bg-white hover:text-amber-500 transition-colors duration-300 cursor-pointer"
+                            className="yig-btn yig-first-yellow-bg yig-first-yellow-border yig-black inline-block text-center text-xl desktop:text-2xl py-3 px-6 desktop:py-5 desktop:px-10 m-4 desktop:m-6 rounded-lg border-2 hover:bg-white shadow-2xl transition-colors duration-300 cursor-pointer"
                             to="/playlist/details-checker"
                         >
                             Check Details

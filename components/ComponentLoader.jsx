@@ -26,8 +26,12 @@ export default function ComponentLoader({ url, dataParser, ComponentToLoad }) {
 
     if (loading) {
         return (
-            <div className="flex flex-col items-center my-5">
-                <img src="./assets/loading.svg" alt="Loading" />
+            <div className="flex flex-col items-center w-32 my-10">
+                <img
+                    className="w-full"
+                    src="./assets/loading.svg"
+                    alt="Loading"
+                />
             </div>
         );
     } else if (failedResponse[1]) {

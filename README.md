@@ -30,6 +30,14 @@ To try it out, visit **[YouTube Info Gather](https://youtubeinfogather.adamaliwe
 
 -   Investigate what happens after the usage quota exceeds the limit
 
--   Fix the error when infocusing an incorrect url makes the submit button disabled entirely
+-   Change time format (videos duration and playlist durations)
+
+-   Reduce text and images sizes in info cards
+
+-   Update Logo
+
+-   Add more spacing to the elements
 
 -   Add useEffect on _FormTemplate.jsx_ to scroll to errors whean appear
+
+-   Download the formatter for Tailwind classes
