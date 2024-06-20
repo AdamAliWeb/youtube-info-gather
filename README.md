@@ -2,10 +2,10 @@
 
 ## Technology Stack
 
-![React](https://adamaliweb.com/assets/technologies/react.svg)
-![React Router](https://adamaliweb.com/assets/technologies/react-router.svg)
-![Tailwind](https://adamaliweb.com/assets/technologies/tailwind.svg)
-![Vite](https://adamaliweb.com/assets/technologies/vite.svg)
+-   **[React](https://react.dev/)**
+-   **[React Router](https://reactrouter.com/en/main)**
+-   **[Tailwind](https://tailwindcss.com/)**
+-   **[Vite](https://vitejs.dev/)**
 
 ## Description
 
@@ -26,13 +26,15 @@ To try it out, visit **[YouTube Info Gather](https://youtubeinfogather.adamaliwe
 
 ## Issues to Fix
 
+-   Organize and Comment Code
+
 -   Add images and change to a better placing for home text
 
 -   Investigate what happens after the usage quota exceeds the limit
 
 -   Change time format (videos duration and playlist durations)
 
--   Reduce text and images sizes in info cards
+-   Reduce text and images sizes and improve background visibility in info cards
 
 -   Update Logo
 
